@@ -1,0 +1,86 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./tlo4.png) ;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-content: center;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 10%;
+    color: black;
+    background-repeat: no-repeat;
+    
+}
+.form{
+
+    background: #fdf4ea;
+    width: 300px;
+    height: 420px;
+    border-radius: 3px;
+}
+
+.form input{
+
+    border: 1px solid rgba(100,100,100,0.3);
+    box-shadow: 1px 1px 2px rgba(180,180,180,0.3),
+    -1px -1px 2px rgba(180,180,180,0.3);
+    transform: translateY(30px);
+    display: block;
+    margin: 15px auto 0px auto;
+    height: 30px;
+    width: 80%;
+    border-radius: 2px;
+    text-align: center;
+}
+
+input:focus{
+    outline: none;
+}
+
+.form input[type="submit"]{
+    
+    background: #53747d;
+    width: 77%;
+    border-radius: 2px;
+    color: rgb(255, 255, 255);
+    border: none;
+    font-size: 17px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    margin-top: 50px;
+}
+
+::placeholder{
+  position: relative;
+  left: 15px;
+  text-align: justify;
+}
+
+.title{
+    transform: translate(120px,25px);
+    
+}
+.title p{
+    
+    color: #3b5d66;
+    font-weight: 600;
+    font-size: 1.2em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+a{
+  position: relative;
+  left: 50px;
+  top: -45px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  
+}
