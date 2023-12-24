@@ -5,7 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Profil Użytkownika</title>
-    <!-- Tutaj dodaj linki do arkuszy CSS, jeśli są potrzebne -->
+    <style>
+      body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+a {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 15px;
+    background-color: #ff00ff; /* różowy kolor fuchsia */
+    color: white;
+    border-radius: 20px; /* zakrzywione rogi */
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+a:hover {
+    background-color: #e0691f; /* ciemniejszy odcień różowego */
+}
+
+h1, h2 {
+    color: #0056b3; /* niebieski kolor nagłówka */
+}
+
+.container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Styl dla sekcji z informacjami */
+div {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styl dla tekstu wewnątrz sekcji */
+div p {
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+    </style>
   </head>
   <body>
 
@@ -35,7 +86,7 @@
 
 
 <a href="edit-profile.php">Edytuj Dane</a>
-
+<a href="edit-password.php">Zmień hasło</a>
 <!-- Tutaj możesz dodać sekcje wyświetlające adopcje, wirtualne adopcje i spacery -->
 <div>
     <h2>Twoje Adopcje</h2>
@@ -100,8 +151,8 @@
       ?>
     
 </div>
-
-<a href="logout.php">Wyloguj się</a> <!-- Link do skryptu wylogowującego -->
+<a href="main.php">Strona główna</a> 
+<a href="logout.php">Wyloguj się</a> 
 
 </body>
 </html>
