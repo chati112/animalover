@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Edytuj Profil</title>
-    <!-- Link do arkusza CSS -->
+   
 </head>
 <style> 
     body {
@@ -90,15 +90,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $newEmail = $_POST['newEmail'];
     $password = $_POST['password'];
 
-    // Pobierz aktualne hasło użytkownika z bazy danych
+    
     $query = animalover::connect()->prepare('SELECT Password FROM users WHERE Email = :e');
     $query->bindValue(':e', $currentEmail);
     $query->execute();
     $user = $query->fetch(PDO::FETCH_ASSOC);
 
-    // Sprawdź czy podane hasło jest poprawne
+    
     if (password_verify($password, $user['Password'])) {
-        // Aktualizacja danych użytkownika
+        
         $updateQuery = animalover::connect()->prepare('UPDATE users SET FirstName = :firstName, LastName = :lastName, DateOfBirth = :birthDate, Email = :newEmail WHERE Email = :currentEmail');
         $updateQuery->bindValue(':firstName', $firstName);
         $updateQuery->bindValue(':lastName', $lastName);
