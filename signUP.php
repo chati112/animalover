@@ -39,12 +39,12 @@
                     } else {
                         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-                        // Zapisywanie danych użytkownika z zahashowanym hasłem do bazy
+                        // zapisywanie danych użytkownika z zahashowanym hasłem do bazy
                         $p = animalover::connect()->prepare('INSERT INTO users(FirstName, LastName, Email, Password, DateOfBirth) VALUES(:n, :l, :e, :p, :b)');
                         $p->bindValue(':n', $name);
                         $p->bindValue(':l', $lastName);
                         $p->bindValue(':e', $email);
-                        $p->bindValue(':p', $hashedPassword); // Użycie zahashowanego hasła
+                        $p->bindValue(':p', $hashedPassword); 
                         $p->bindValue(':b', $birthDate);
                         $p->execute();
                         $info = 'User added successfully!';
