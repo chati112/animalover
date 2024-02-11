@@ -7,61 +7,63 @@
     <title>Profil Użytkownika</title>
     <style>
       body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 20px;
-        color: #333;
-      }
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
 
-      a {
-        display: inline-block;
-        margin: 10px 0;
-        padding: 10px 15px;
-        background-color: #ff00ff;
-        color: white;
-        border-radius: 20px;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
-      }
+a {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 15px;
+    background-color: #ff00ff; /* różowy kolor fuchsia */
+    color: white;
+    border-radius: 20px; /* zakrzywione rogi */
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
 
-      a:hover {
-        background-color: #e0691f;
-      }
+a:hover {
+    background-color: #e0691f; /* ciemniejszy odcień różowego */
+}
 
-      h1, h2 {
-        color: #0056b3;
-      }
+h1, h2 {
+    color: #0056b3; /* niebieski kolor nagłówka */
+}
 
-      .container {
-        background-color: white;
-        border-radius: 8px;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
-      }
+.container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
 
-      div {
-        background-color: #ffffff;
-        padding: 15px;
-        margin-bottom: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
+/* Styl dla sekcji z informacjami */
+div {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-      div p {
-        line-height: 1.6;
-        margin: 10px 0;
-      }
+/* Styl dla tekstu wewnątrz sekcji */
+div p {
+    line-height: 1.6;
+    margin: 10px 0;
+}
 
     </style>
   </head>
   <body>
 
   <?php
-  session_start();
+  session_start(); // Rozpoczęcie sesji
   require('./connection.php');
-
+  // Sprawdzanie, czy użytkownik jest zalogowany
   if (isset($_SESSION['validate']) && $_SESSION['validate']) { 
     $email = $_SESSION['email'];
     $query = animalover::connect()->prepare('SELECT * FROM users WHERE Email = :e');
@@ -73,17 +75,20 @@
         exit;
     }
     $userID = $user['ID'];
-    echo "<h1>Witaj, " . htmlspecialchars($user['FirstName']) . "!</h1>";
+    echo "<h1>Witaj, " . htmlspecialchars($user['FirstName']) . "!</h1>"; // Bezpieczne wyświetlenie imienia użytkownika
+    // Tutaj możesz dodać więcej informacji o użytkowniku
   } else {
+    // Przekierowanie do strony logowania, jeśli użytkownik nie jest zalogowany
     header('location:login.php');
     exit();
   }
-  ?>
+?>
 
-  <a href="edit-profile.php">Edytuj Dane</a>
-  <a href="edit-password.php">Zmień hasło</a>
 
-  <div>
+<a href="edit-profile.php">Edytuj Dane</a>
+<a href="edit-password.php">Zmień hasło</a>
+<!-- Tutaj możesz dodać sekcje wyświetlające adopcje, wirtualne adopcje i spacery -->
+<div>
     <h2>Twoje Adopcje</h2>
     <?php
       
@@ -102,9 +107,9 @@
           echo "Data Rozpoczęcia: " . $a['StartDate'] . ", Zwierzę: " . $a['AnimalName'] . " (" . $a['Species'] . ")<br>";
       }
       ?>
-  </div>
+</div>
 
-  <div>
+<div>
     <h2>Twoje Wirtualne Adopcje</h2>
     <?php
       
@@ -123,9 +128,9 @@
           echo "Data Rozpoczęcia: " . $va['StartDate'] . ", Numer Konta: " . $va['BankAccountNumber'] . ", Zwierzę: " . $va['AnimalName'] . " (" . $va['Species'] . ")<br>";
       }
       ?>
-  </div>
+</div>
 
-  <div>
+<div>
     <h2>Twoje Spacery</h2>
     <?php
       
@@ -145,9 +150,9 @@
       }
       ?>
     
-  </div>
-  <a href="main.php">Strona główna</a> 
-  <a href="logout.php">Wyloguj się</a> 
+</div>
+<a href="main.php">Strona główna</a> 
+<a href="logout.php">Wyloguj się</a> 
 
-  </body>
+</body>
 </html>

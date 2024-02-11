@@ -53,17 +53,17 @@
     line-height: 1.6;
 }
 
-
+/* Dodatkowy styl dla różnych sekcji */
 .shelter p:first-child {
     font-weight: bold;
-    color: #ff00ff; 
+    color: #ff00ff; /* Kolor dla pierwszego akapitu */
 }
 
-
+/* Style dla telefonu i miasta */
 .shelter p:nth-child(3), 
 .shelter p:nth-child(4) {
     font-style: italic;
-    color: #007600; 
+    color: #007600; /* Zielony kolor */
 }
 .shelter button {
     background-color: #0056b3;

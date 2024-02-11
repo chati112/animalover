@@ -39,30 +39,41 @@
     </style>
   </head>
   <body>
-    <?php
-            session_start();
-            $info="";
-            require('./connection.php');
-            if (isset($_POST['login_button'])) {
-                $_SESSION['validate']=false;
-                $email=$_POST['email'];
-                $password=$_POST['password'];
-                $p = animalover::connect()->prepare('SELECT * FROM users WHERE Email=:e');
-                $p->bindValue(':e', $email);
-                $p->execute();
-                $user = $p->fetch(PDO::FETCH_ASSOC);
-            
-                if ($user && password_verify($password, $user['Password'])) {
-                    // Hasło pasuje, kontynuuj logowanie
-                    $_SESSION['email'] = $email;
-                    $_SESSION['validate'] = true;
-                    header('location:profile.php');
-                } else {
-                    $info = "Account not found :(";
-                }
+  <?php
+      session_start();
+      $info = "";
+      require('connection.php');
+      if (isset($_POST['login_button'])) {
+          $_SESSION['validate'] = false;
+          $email = $_POST['email'];
+          $password = $_POST['password'];
+          $p = animalover::connect()->prepare('SELECT * FROM users WHERE Email = :e');
+          $p->bindValue(':e', $email);
+          $p->execute();
+          $user = $p->fetch(PDO::FETCH_ASSOC);
 
-        }
-    ?>
+          if ($user && password_verify($password, $user['Password'])) {
+              $_SESSION['email'] = $email;
+              $_SESSION['validate'] = true;
+              $_SESSION['user_id'] = $user['ID']; // Zapisz ID użytkownika w sesji
+              $_SESSION['is_admin'] = $user['Admin']; // Zapisz informację, czy użytkownik jest adminem
+              echo "Próbuję przekierować...";
+                if ($user['Admin']) {
+                  
+                  header('Location: admin-view.php');
+                  exit();
+              } else {
+                  // Użytkownik nie jest adminem, przekieruj do profilu
+                  header('Location: profile.php');
+                  exit();
+              }
+          } else {
+              $info = "Account not found :(";
+          }
+      }
+  ?>
+
+
     <div class="container">
       
       <div class="form">

@@ -23,6 +23,7 @@
         $password = $_POST['password'];
         $confPassword = $_POST['confiPassword'];
         $birthDate = $_POST['birthDate'];
+        $admin = 0; // Domyślnie użytkownik nie jest administratorem
 
        if (!empty($name) && !empty($lastName) && !empty($email) && !empty($password) && !empty($birthDate)) {
             if ($password == $confPassword) {
@@ -30,7 +31,7 @@
                 $checkEmail = animalover::connect()->prepare('SELECT Email FROM users WHERE Email = :e');
                 $checkEmail->bindValue(':e', $email);
                 $checkEmail->execute();
-
+                    
                 if ($checkEmail->rowCount() > 0) {
                     $info = "Email already in use. ";
                 } else {
@@ -39,12 +40,13 @@
                     } else {
                         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-                        // zapisywanie danych użytkownika z zahashowanym hasłem do bazy
-                        $p = animalover::connect()->prepare('INSERT INTO users(FirstName, LastName, Email, Password, DateOfBirth) VALUES(:n, :l, :e, :p, :b)');
+                        // Zapisywanie danych użytkownika z zahashowanym hasłem do bazy
+                        $p = animalover::connect()->prepare('INSERT INTO users(FirstName, LastName, Admin, Email, Password, DateOfBirth) VALUES(:n, :l, :a, :e, :p, :b)');
                         $p->bindValue(':n', $name);
                         $p->bindValue(':l', $lastName);
+                        $p->bindValue(':a', $admin);
                         $p->bindValue(':e', $email);
-                        $p->bindValue(':p', $hashedPassword); 
+                        $p->bindValue(':p', $hashedPassword); // Użycie zahashowanego hasła
                         $p->bindValue(':b', $birthDate);
                         $p->execute();
                         $info = 'User added successfully!';
