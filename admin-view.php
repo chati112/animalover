@@ -27,7 +27,13 @@ $topUsers = animalover::GetTopActiveUsers();
     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
-                <li class="nav-item">
+                    <li class="nav-item">
+                        <img src="tlo4.png" alt="admin-avatar" width="175" height="175" padding>
+                    </li>
+                    <li class="nav-item">
+                        <h3>Hello, Admin </h3>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="admin-view.php">Dashboard</a>
                     </li>
                     <li class="nav-item">
@@ -49,7 +55,6 @@ $topUsers = animalover::GetTopActiveUsers();
                         <a class="nav-link" href="list_virtualadoptions.php">Wirtualne adopcje</a>
                     </li>
                     
-                    <!-- Dodaj więcej linków do nawigacji według potrzeb -->
                 </ul>
             </div>
         </nav>

@@ -53,7 +53,7 @@ $users = animalover::SelectUsers(); // Zakładam, że taka funkcja istnieje
                         <th>Nazwisko</th>
                         <th>Data Urodzenia</th>
                         <th>Email</th>
-                        <!-- Dodaj więcej kolumn zgodnie z Twoją tabelą użytkowników -->
+
                     </tr>
                 </thead>
                 <tbody>

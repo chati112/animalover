@@ -1,7 +1,19 @@
 <?php
-require_once 'connection.php'; // Dostosuj ścieżkę
+require_once 'connection.php'; 
 
-$shelters = animalover::SelectShelters(); // Zakładam, że taka funkcja istnieje i zwraca listę schronisk
+$shelters = animalover::SelectShelters(); 
+
+if (isset($_GET['id'])) {
+    $shelterId = $_GET['id'];
+    // Zapytanie SQL do usunięcia schroniska
+    $stmt = animalover::connect()->prepare("DELETE FROM shelters WHERE ID = :id");
+    $stmt->bindValue(':id', $shelterId);
+    $stmt->execute();
+
+    // Przekierowanie do listy schronisk po usunięciu
+    header('Location: list_shelters.php');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +22,14 @@ $shelters = animalover::SelectShelters(); // Zakładam, że taka funkcja istniej
     <meta charset="UTF-8">
     <title>Lista Schronisk</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <script>
+    function deleteShelter(shelterId) {
+        if (confirm('Czy na pewno chcesz usunąć to schronisko?')) {
+            window.location.href = 'delete_shelter.php?id=' + shelterId;
+        }
+    }
+    </script>
 </head>
 <body>
 
@@ -40,7 +60,6 @@ $shelters = animalover::SelectShelters(); // Zakładam, że taka funkcja istniej
                         <a class="nav-link" href="list_virtualadoptions.php">Wirtualne adopcje</a>
                     </li>
                     
-                    <!-- Dodaj więcej linków do nawigacji według potrzeb -->
                 </ul>
             </div>
         </nav>
@@ -71,7 +90,9 @@ $shelters = animalover::SelectShelters(); // Zakładam, że taka funkcja istniej
                         <td><?= htmlspecialchars($shelter['Phone']) ?></td>
                         <td><?= htmlspecialchars($shelter['City']) ?></td>
                         <td><?= htmlspecialchars($shelter['Description']) ?></td>
-                        <td><img src="<?= htmlspecialchars($shelter['Img']) ?>" height="50"></td>
+                        <td><img src="<?= htmlspecialchars($shelter['Img']) ?>" height="100"></td>
+                        <td><a href="edit_shelter.php?id=<?= $shelter['ID'] ?>" class="btn btn-primary btn-sm">Edytuj</a></td>
+                        <td><button onclick="deleteShelter(<?= $shelter['ID'] ?>)" class="btn btn-danger btn-sm">Usuń</button></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>

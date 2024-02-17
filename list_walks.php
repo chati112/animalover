@@ -39,8 +39,7 @@ $walks = animalover::SelectWalks(); // Zakładam, że taka funkcja istnieje
                     <li class="nav-item">
                         <a class="nav-link" href="list_virtualadoptions.php">Wirtualne adopcje</a>
                     </li>
-                    
-                    <!-- Dodaj więcej linków do nawigacji według potrzeb -->
+
                 </ul>
             </div>
         </nav>

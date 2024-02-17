@@ -1,7 +1,7 @@
 <?php
-require_once 'connection.php'; // Dostosuj ścieżkę
+require_once 'connection.php';
 
-$adoptions = animalover::SelectAdoptions(); // Zakładam, że taka funkcja istnieje
+$adoptions = animalover::SelectAdoptions(); 
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +18,7 @@ $adoptions = animalover::SelectAdoptions(); // Zakładam, że taka funkcja istni
     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="admin-view.php">Dashboard</a>
                     </li>
