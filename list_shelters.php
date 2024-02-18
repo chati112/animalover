@@ -3,17 +3,6 @@ require_once 'connection.php';
 
 $shelters = animalover::SelectShelters(); 
 
-if (isset($_GET['id'])) {
-    $shelterId = $_GET['id'];
-    // Zapytanie SQL do usunięcia schroniska
-    $stmt = animalover::connect()->prepare("DELETE FROM shelters WHERE ID = :id");
-    $stmt->bindValue(':id', $shelterId);
-    $stmt->execute();
-
-    // Przekierowanie do listy schronisk po usunięciu
-    header('Location: list_shelters.php');
-    exit();
-}
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +14,7 @@ if (isset($_GET['id'])) {
 
     <script>
     function deleteShelter(shelterId) {
-        if (confirm('Czy na pewno chcesz usunąć to schronisko?')) {
+        if (confirm('Czy na pewno chcesz usunąć to schronisko i wszystkie rekordy(również te w innych tabelach) z nim związane?')) {
             window.location.href = 'delete_shelter.php?id=' + shelterId;
         }
     }
@@ -38,6 +27,9 @@ if (isset($_GET['id'])) {
     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
+                <li class="nav-item">
+                        <img src="https://img.freepik.com/premium-wektory/biznesmen-ikona-avatar-w-stylu-plaski-kolor_755164-938.jpg?w=740" alt="admin-avatar" width="175" height="175" padding>
+                    </li>
                 <li class="nav-item">
                         <a class="nav-link" href="admin-view.php">Dashboard</a>
                     </li>
@@ -66,7 +58,10 @@ if (isset($_GET['id'])) {
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Lista Schronisk</h1>
+                <h1 class="h2">Lista schronisk</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <button class="btn btn-sm btn-outline-secondary" onclick="location.href='logout.php'">Wyloguj</button>
+                </div>
             </div>
             
             <table class="table">

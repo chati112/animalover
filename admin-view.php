@@ -28,7 +28,7 @@ $topUsers = animalover::GetTopActiveUsers();
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <img src="tlo4.png" alt="admin-avatar" width="175" height="175" padding>
+                        <img src="https://img.freepik.com/premium-wektory/biznesmen-ikona-avatar-w-stylu-plaski-kolor_755164-938.jpg?w=740" alt="admin-avatar" width="175" height="175" padding>
                     </li>
                     <li class="nav-item">
                         <h3>Hello, Admin </h3>
@@ -62,6 +62,9 @@ $topUsers = animalover::GetTopActiveUsers();
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Dashboard - Statystyki Serwisu</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <button class="btn btn-sm btn-outline-secondary" onclick="location.href='logout.php'">Wyloguj</button>
+                </div>
             </div>
             
             <div class="container mt-5">

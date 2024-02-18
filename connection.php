@@ -77,14 +77,17 @@
             return $data;
         }
 
-        public static function SelectWalks()
-        {
-            $data = array();
-            $pdo = animalover::connect();
-            $stmt = $pdo->prepare('SELECT * FROM walks');
+        public static function SelectWalks() {
+            $pdo = static::connect();
+            $stmt = $pdo->prepare("
+                SELECT w.ID, w.DateOfWalk, u.FirstName AS UserName, a.Name AS AnimalName
+                FROM walks w
+                JOIN users u ON w.UserID = u.ID
+                JOIN animals a ON w.AnimalID = a.ID
+                ORDER BY w.ID DESC
+            ");
             $stmt->execute();
-            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $data;
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         public static function CountAnimals() {

@@ -43,7 +43,7 @@ if (!$shelter) {
     <style>
         .container {
             max-width: 600px; 
-            margin: auto; 
+            margin: 5vw auto; 
         }
     </style>
 </head>
