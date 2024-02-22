@@ -7,10 +7,19 @@
     <title>Animalover</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script>
-    
-    </script>
+    <script src="script.js" defer></script>
 </head>
+<?php
+require_once 'connection.php'; 
+
+try {
+    $pdo = animalover::connect();
+    $stmt = $pdo->query("SELECT Img, ShelterName, City FROM shelters WHERE Img IS NOT NULL");
+    $shelterImages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Nie można pobrać obrazów: " . $e->getMessage());
+}
+?>
 
 <body>
     <header>
@@ -30,6 +39,40 @@
         </ul>
     </nav>
     </header>
+    
+    <div class="content">
+    <br><br><br>
+    <div class="container">
+      <div class="slider-wrapper">
+        <button id="prev-slide" class="slide-button material-symbols-rounded">
+          <
+        </button>
+        <ul class="image-list">
+            <?php foreach ($shelterImages as $image): ?>
+            <li class="image-item-wrapper">
+                
+                
+                <img class="image-item" src="<?= htmlspecialchars($image['Img']) ?>" alt="Schronisko" />
+                <div class="image-overlay"><?= htmlspecialchars($image['ShelterName']) ?>, <?= htmlspecialchars($image['City']) ?></div>
+            </li>
+            <?php endforeach; ?>
+        </ul>
+          
+  
+        <button id="next-slide" class="slide-button material-symbols-rounded">
+          >
+        </button>
+      </div>
+      <div class="slider-scrollbar">
+        <div class="scrollbar-track">
+          <div class="scrollbar-thumb"></div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
 </body>
 
 </html>
+
