@@ -66,18 +66,18 @@ try {
 
           <div class="swiper-slide slide">
             <div class="content">
-                <span>Adopt online</span>
+                <span>Book a walk</span>
                 <h3>Plenty of shelters</h3>
                 <a href="" class="btn">See all </a>
             </div>
             <div class="image">
-              <img src="https://img.freepik.com/darmowe-zdjecie/osoba-siegajaca-po-psy-przez-plot-przy-schronisku_23-2148682945.jpg?t=st=1708716712~exp=1708720312~hmac=914968dda0783cf87ea0771597b488edfc6c94cfb8bee970e4fa3b4e27aa6ed3&w=1060" alt="">
+              <img src="https://img.freepik.com/premium-zdjecie/usmiechnieta-kobieta-bawiaca-sie-z-psem-w-klatce_1048944-8587417.jpg?w=1380" alt="">
             </div>
           </div>
 
           <div class="swiper-slide slide">
             <div class="content">
-              <span>About us</span>
+              <span>Our mission</span>
               <h3>In love with animals</h3>
               <a href="" class="btn">Read more ...</a>
             </div>
@@ -117,11 +117,20 @@ try {
       <div class="slider-scrollbar">
         <div class="scrollbar-track">
           <div class="scrollbar-thumb"></div>
+          
         </div>
       </div>
+      
     </div>
-
+    <div class="about-us">
+      <div id="AboutUs-text">
+                  <h2>About us</h2>
+                  <img src="about-us.jpg" alt="about-us-image.jpg" id="about-us-img" height="400" width="600px" >
+                  <img src="about-us.jpg" alt="about-us-image.jpg" id="about-us-img" height="400" width="600px" >
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum iure facere impedit iusto facilis maiores voluptatem voluptatum cumque rem excepturi! Omnis rem totam repellendus dolores ratione doloribus nam voluptate debitis dolor similique, ipsa sed eligendi ab corrupti nisi deleniti nesciunt, velit alias iure atque? Minima, labore. Autem, et illo doloremque deserunt fugiat, mollitia provident assumenda suscipit vitae omnis recusandae consequatur nostrum vero adipisci pariatur odio expedita. Necessitatibus id voluptate deleniti aliquid facilis qui neque aliquam cum, error eveniet recusandae fugit quisquam quae accusamus corporis soluta assumenda blanditiis incidunt et hic. Eveniet unde excepturi sint voluptate quos illum possimus quibusdam officia? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis necessitatibus rem saepe quidem, qui ipsum laborum, voluptatum perspiciatis minima nulla tenetur sit ratione ducimus molestias. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non sequi similique cupiditate voluptas provident labore ex distinctio delectus quidem quam, nesciunt minus beatae iusto amet!</p>
+      </div>
     </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>          
     <script>
       var swiper = new Swiper (".home-slider", {
