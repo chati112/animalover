@@ -26,6 +26,7 @@ body {
 .menu li a {
     display: inline-block;
     text-decoration: none;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--color1);
     text-align: center;
@@ -205,6 +206,7 @@ section{
   .btn{
     display: inline-block;
     margin-top: 1rem;
+    font-weight: bold;
     padding: 1rem 3rem;
     font-size: 2rem;
     cursor: pointer;
@@ -221,7 +223,11 @@ section{
    margin-bottom: 4rem;
     
   }
-  
+  .h3{
+    font-size: 8rem;
+    color:var(--black);
+    text-transform: capitalize;
+  }
   .home .swiper-slide .content{
     flex: 1 1 40rem;
     text-align: center;
@@ -237,16 +243,37 @@ section{
     font-size: 2.5rem;
     color:var(--light-color);
   }
-  .home .swiper-slide .content .h3{
-    margin:1rem 0;
-   font-size: 8rem;
+  .home .swiper-slide .content {
+  margin:1rem 0;
+   font-size: 4.5rem;
    color:var(--black);
    text-transform: capitalize;
   }
   .swiper-pagination-bullet-active {
     background-color: #fff;
   }
-  /* Styles for mobile and tablets */
+
+  .about-us {
+    width: 100%;
+    background-color: rgb(200, 208, 231);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  #about-us-img {
+    border: 10px solid white ;
+    margin-bottom: 3vw;
+    margin-top: 3vw;
+}
+#AboutUs-text {  
+    text-align: center; 
+    padding: 35px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
   @media only screen and (max-width: 1023px) {
     .slider-wrapper .slide-button {
       display: none !important;
@@ -274,6 +301,13 @@ section{
     .home .slide .content .h3{
       font-size: 3rem;
     }
+    #about-us-img {
+      width: 80%;
+      height: 80%;
+  }
+  #AboutUs-text {
+    font-size: 10px;
+  }
   }
 
   
@@ -314,6 +348,10 @@ section{
     .menu li a {padding: 10px;}
     .open-menu , .close-menu {display: block;}
     #check:checked ~ .menu {right: 0;}
+    #about-us-img {
+      width: 80%;
+      height: 80%;
+  }
 
     
 }
