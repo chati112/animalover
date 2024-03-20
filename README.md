@@ -11,3 +11,5 @@ Users (Użytkownicy) -  przechowuje informacje o użytkownikach systemu, takie j
 VirtualAdoption (Wirtualna Adopcja) - Tabela ta dotyczy wirtualnej adopcji, w ramach której osoby mogą wspierać zwierzęta na odległość.
 
 Walk (Spacer) - Ta tabela jest związana z organizacją spacerów dla zwierząt, zapisując takie dane jak identyfikator spaceru, informacje o zwierzęciu, dane osoby odpowiadającej za spacer.
+
+![image](https://github.com/chati112/animalover-in-progress-/assets/133596038/42d434ae-60d8-4016-8d11-f25065bbac3e)
